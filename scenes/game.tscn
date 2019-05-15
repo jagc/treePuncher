@@ -40,4 +40,4 @@ position = Vector2( 643.147, 825.033 )
 scale = Vector2( 2, 2 )
 
 [node name="firstTrunkPosition" type="Position2D" parent="."]
-position = Vector2( 352, 1120 )
+position = Vector2( 352, 992 )
