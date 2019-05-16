@@ -68,11 +68,16 @@ func punch_tree(from_right):
 	trunks.pop_front()
 	for trunk in trunks:
 		trunk.position.y += trunk.sprite_height
+	
+	time_left.value += 0.25
+	if time_left.value > time_left.max_value:
+		time_left.value = time_left.max_value
 		
 func die():
 	grave.position.x = player.position.x
 	player.queue_free()
 	timer.start()
+	grave.z_index = -2
 	grave.visible = true
 	dead = true
 
