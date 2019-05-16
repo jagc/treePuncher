@@ -5,7 +5,7 @@
 [ext_resource path="res://sprites/axe_iron.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 61.3891
+radius = 45.0
 
 [node name="trunk" type="Node2D"]
 scale = Vector2( 2, 2 )
@@ -16,7 +16,10 @@ script = ExtResource( 1 )
 z_index = 1
 texture = ExtResource( 2 )
 
-[node name="leftAxe" type="Area2D" parent="."]
+[node name="leftAxe" type="Area2D" parent="." groups=[
+"axes",
+]]
+editor/display_folded = true
 position = Vector2( -90, 0 )
 __meta__ = {
 "_edit_group_": true
@@ -29,9 +32,13 @@ texture = ExtResource( 3 )
 position = Vector2( -5.1794, 3.2611 )
 shape = SubResource( 1 )
 
-[node name="rightAxe" type="Area2D" parent="."]
+[node name="rightAxe" type="Area2D" parent="." groups=[
+"axes",
+]]
+editor/display_folded = true
 position = Vector2( 90, 0 )
 scale = Vector2( -1, 1 )
+z_index = 1
 __meta__ = {
 "_edit_group_": true
 }
