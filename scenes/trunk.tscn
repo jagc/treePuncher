@@ -16,7 +16,6 @@ z_index = 1
 texture = ExtResource( 2 )
 
 [node name="leftAxe" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( -90, 0 )
 __meta__ = {
 "_edit_group_": true
