@@ -3,10 +3,15 @@ extends Node
 export(PackedScene) var trunk_scene
 
 onready var first_trunk_position = $firstTrunkPosition
+onready var grave = $grave
+onready var time_left = $timeLeft
+onready var player = $player
+onready var timer = $timer
 
 var last_spawn_position
 var last_has_axe = false
 var last_axe_right = false
+var dead = false
 
 var trunks = []
 
@@ -15,6 +20,12 @@ func _ready():
 	_spawn_first_trunks()
 
 func _process(delta):
+	if dead:
+		return
+	time_left.value -= delta
+	if time_left.value <=0:
+		die()
+
 	if Input.is_action_just_pressed("close"):
 		get_tree().quit()
 
@@ -57,3 +68,13 @@ func punch_tree(from_right):
 	trunks.pop_front()
 	for trunk in trunks:
 		trunk.position.y += trunk.sprite_height
+		
+func die():
+	grave.position.x = player.position.x
+	player.queue_free()
+	timer.start()
+	grave.visible = true
+	dead = true
+
+func _on_Timer_timeout():
+	get_tree().reload_current_scene()

@@ -9,11 +9,15 @@
 
 [node name="game" type="Node"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 trunk_scene = ExtResource( 2 )
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 191.264, 632.642 )
 scale = Vector2( 2.69691, 2.69691 )
+z_index = -10
 texture = ExtResource( 3 )
 
 [node name="ground" type="Node2D" parent="."]
@@ -47,3 +51,16 @@ position = Vector2( 352, 992 )
 visible = false
 position = Vector2( 559.147, 1030.22 )
 texture = ExtResource( 6 )
+
+[node name="timeLeft" type="ProgressBar" parent="."]
+margin_left = 192.0
+margin_top = 64.0
+margin_right = 512.0
+margin_bottom = 128.0
+max_value = 5.0
+value = 5.0
+percent_visible = false
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 2.5
+[connection signal="timeout" from="timer" to="." method="_on_Timer_timeout"]
