@@ -41,3 +41,7 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rightAxe"]
 position = Vector2( -5.1794, 3.2611 )
 shape = SubResource( 1 )
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 3.0
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

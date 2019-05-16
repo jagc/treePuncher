@@ -1,13 +1,21 @@
 extends Node2D
 
+var speed = 850
+var direction = 1
+
 onready var sprite = $Sprite
 onready var left_axe = $leftAxe
 onready var right_axe = $rightAxe
+onready var timer = $timer
 
 var sprite_height
 
 func _ready():
 	sprite_height = sprite.texture.get_height() * scale.y
+	set_process(false)
+	
+func _process(delta):
+	position.x += speed * direction * delta
 	
 func initialize_trunk(axe, right):
 	if axe:
@@ -18,3 +26,14 @@ func initialize_trunk(axe, right):
 	else:
 		left_axe.queue_free()
 		right_axe.queue_free()
+
+func remove(from_right):
+	if from_right:
+		direction = -1
+	else:
+		direction = 1
+	timer.start()
+	set_process(true)
+
+func _on_timer_timeout():
+	queue_free()
