@@ -20,14 +20,13 @@ func _ready():
 	_spawn_first_trunks()
 
 func _process(delta):
+	if Input.is_action_just_pressed("close"):
+		get_tree().quit()
 	if dead:
 		return
 	time_left.value -= delta
 	if time_left.value <=0:
 		die()
-
-	if Input.is_action_just_pressed("close"):
-		get_tree().quit()
 
 func _spawn_first_trunks():
 	for counter in range(5):
