@@ -36,7 +36,7 @@ position = Vector2( 320, 64 )
 texture = ExtResource( 4 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 643.147, 825.033 )
+position = Vector2( 559.147, 825.033 )
 scale = Vector2( 2, 2 )
 
 [node name="firstTrunkPosition" type="Position2D" parent="."]
